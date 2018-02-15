@@ -1,0 +1,79 @@
+<ion-header>
+
+  <ion-navbar>
+  <ion-buttons left>
+        <button  ion-button menuToggle left>
+        <ion-icon name="menu"> </ion-icon>
+     </button> 
+    </ion-buttons>
+   
+
+    
+
+        <ion-title>item reg</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding color="danger">
+
+
+<ion-list  padding>
+
+  <ion-item>
+    <ion-label  color="danger">product name</ion-label>
+    <ion-input placeholder="enter product name"  type="Clear Input"> </ion-input>
+  </ion-item>
+
+
+<br> <br>
+<br> <br>
+
+ 
+<ion-item>
+    <ion-textarea placeholder="Enter product description"  color="danger"></ion-textarea>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-input type="number" placeholder="enter  quantity"></ion-input>
+  </ion-item>
+
+
+
+ <ion-item>
+    <ion-input type="number" placeholder="enter price ₹"></ion-input>
+  </ion-item>
+
+  <br>
+  <br>
+
+<div text-center align-items-center>
+
+ <ion-row center>
+  <ion-label color="primary"   text-center  >click product picture to save</ion-label>
+  </ion-row>
+
+<ion-icon name="camera"></ion-icon>
+
+<br> <br>
+
+
+
+<button ion-button color="secondary" [round]="isRound" text-center   > save  product and generate qrcode! </button>
+
+</div>
+
+</ion-list>
+
+<br> <br>
+
+
+
+
+
+
+    this is item registration!
+
+</ion-content>
