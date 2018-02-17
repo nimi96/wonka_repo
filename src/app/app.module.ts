@@ -4,21 +4,28 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
+//import { Tab1Page } from '../pages/tab1/tab1';
 
 
 @NgModule({
   declarations: [
-    MyApp
 
+    MyApp,
+    
   ],
+
+
   imports: [
     BrowserModule,
+
+  
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
-
+    MyApp,
+    
+    
   ],
   providers: [
     StatusBar,

@@ -4,10 +4,11 @@ import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 export interface pageInterface {
 
 title:string,
-pagename:string,
+pagename:any,
 tabcomponent?:any,
 index?:number,
 icon:string;
+
 }
 
 @IonicPage()
@@ -28,11 +29,14 @@ export class MenuPage {
 
 	pages:pageInterface[]=[
 
+     
+
      {title:'item reg', pagename:'TabsPage', tabcomponent:'Tab1Page',index:0,icon:'clipboard'},
      {title:'sale', pagename:'TabsPage', tabcomponent:'Tab2Page',index:1,icon:'exit'},
      {title:'Product enquire', pagename:'SpecialPage',icon:'md-information'},
      {title:'product updation', pagename:'PdPage',icon:'alert'},
      {title:'report', pagename:'RepoPage',icon:'stats'},
+     {title:'All products', pagename:'ApPage',icon:'ios-archive'},
 
 
 	]
@@ -49,6 +53,9 @@ export class MenuPage {
 
 openPage(page:pageInterface){
 let params={};
+
+
+
 if(page.index){
 params={tabIndex: page.index};
 }
@@ -60,6 +67,12 @@ else
   this.nav.setRoot(page.pagename,params);
 }
 }
+
+
+
+
+
+
 
 isActive(page:pageInterface){
 let childNav=this.nav.getActiveChildNav();
@@ -88,6 +101,9 @@ if(this.nav.getActive()&& this.nav.getActive().name === page.pagename )
 }
 
 }
+
+
+
 
 
 

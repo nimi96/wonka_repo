@@ -22,6 +22,8 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+
+
   doLogin(){
 
     this.navCtrl.setRoot('MenuPage');

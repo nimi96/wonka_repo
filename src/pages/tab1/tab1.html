@@ -8,8 +8,6 @@
     </ion-buttons>
    
 
-    
-
         <ion-title>item reg</ion-title>
     </ion-navbar>
 
@@ -21,33 +19,47 @@
 
 <ion-list  padding>
 
+<!--Product Name Field  -->
+
+
   <ion-item>
-    <ion-label  color="danger">product name</ion-label>
-    <ion-input placeholder="enter product name"  type="Clear Input"> </ion-input>
+    <ion-label  color="danger" >product name</ion-label>
+    <ion-input placeholder="enter product name"  type="Clear Input"  [(ngModel)]="name"     > </ion-input>
+
+
+
   </ion-item>
 
 
 <br> <br>
 <br> <br>
 
+
+<!--Product Desc Field  -->
  
 <ion-item>
-    <ion-textarea placeholder="Enter product description"  color="danger"></ion-textarea>
+    <ion-textarea placeholder="Enter product description"  color="danger"   [(ngModel)]="desc"   ></ion-textarea>
   </ion-item>
+
+<!--Product quantity Field  -->
+
 
 
   <ion-item>
-    <ion-input type="number" placeholder="enter  quantity"></ion-input>
+    <ion-input type="number" placeholder="enter  quantity"   [(ngModel)]="quan" ></ion-input>
   </ion-item>
 
 
+<!--Product quantity Field  -->
 
  <ion-item>
-    <ion-input type="number" placeholder="enter price ₹"></ion-input>
+    <ion-input type="number" placeholder="enter price ₹" [(ngModel)]="price"  ></ion-input>
   </ion-item>
 
   <br>
   <br>
+
+<!--product photo -->
 
 <div text-center align-items-center>
 
@@ -59,9 +71,11 @@
 
 <br> <br>
 
+<!-- product  saving button -->
 
+<button ion-button color="secondary"  round (click)="sg()" > save  product and generate qrcode! </button>
 
-<button ion-button color="secondary" [round]="isRound" text-center   > save  product and generate qrcode! </button>
+<button ion-button color="danger"  round (click)="cancel()" > cancel </button>
 
 </div>
 
@@ -70,10 +84,5 @@
 <br> <br>
 
 
-
-
-
-
-    this is item registration!
 
 </ion-content>
