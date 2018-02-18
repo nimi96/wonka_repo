@@ -7,6 +7,10 @@ import { Tab1Page } from '../tab1/tab1';
 import Pouchdb from 'pouchdb';
 
 
+
+//import * as Pouchdb from 'pouchdb';
+
+
 /**
  * Generated class for the ApPage page.
  *

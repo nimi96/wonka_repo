@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
-import pouchDB from 'pouchdb';
+import Pouchdb from 'pouchdb';
 
-
+//import * as Pouchdb from 'pouchdb';
 
 @IonicPage()
 @Component({
@@ -28,6 +28,9 @@ private quan;
 
 private db;
 
+
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   
 
@@ -44,7 +47,11 @@ private db;
 setupdb(){
 
 
-this.db=new pouchDB('items');	
+this.db=new Pouchdb('items');	
+
+
+
+
 }
 
 
