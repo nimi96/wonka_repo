@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
-import Pouchdb from 'pouchdb';
+//import PouchDB from 'pouchdb';
 
-//import * as Pouchdb from 'pouchdb';
+import * as PouchDB from 'pouchdb';
 
 @IonicPage()
 @Component({
@@ -16,6 +16,7 @@ export class Tab1Page {
   
  
 
+//public items:any;
 
 private name;
 
@@ -26,18 +27,15 @@ private price;
 private quan;
 
 
-private db;
-
-
+public db:any;
+public PouchDB:any;
+ 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  
+ 
 
-
-
-
-
+//this.db=new 
 
 
 
@@ -47,7 +45,10 @@ private db;
 setupdb(){
 
 
-this.db=new Pouchdb('items');	
+	
+
+
+this.db=new PouchDB('items');
 
 
 
@@ -68,6 +69,8 @@ this.db=new Pouchdb('items');
   }
 
 sg(){
+
+	
 
 this.db.post({
 name:this.name,
