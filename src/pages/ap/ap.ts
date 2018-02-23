@@ -93,4 +93,42 @@ this.navCtrl.push(Tab1Page);
 
 
 
+Deleteitem(item){
+
+if (confirm("are you sure want to delet this ?")){
+
+
+this.db.remove(item,(err,result)=>{
+
+if(!err){
+  alert("product has been delete");
+
+  this.refresh();
+}
+
+})
+}
+}
+
+
+
+
+
+updateitem(item){
+
+
+
+
+
+
+this.navCtrl.push('Tab1Page', {
+
+item_id:item._id
+
+})
+}
+
+
+
+
 }
