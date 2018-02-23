@@ -81,7 +81,7 @@ quan:this.quan
 (err,result)=>{
 if(!err){
 
-alert("created s");
+
 
 
 }
