@@ -67,9 +67,21 @@
   <ion-label color="primary"   text-center  >click product picture to save</ion-label>
   </ion-row>
 
-<ion-icon name="camera"></ion-icon>
+<ion-icon name="camera"  (click)="takephoto()" ></ion-icon>
 
 <br> <br>
+
+<ion-grid>
+<ion-row>
+  <ion-col col-3 *ngFor="let photo of photos" >
+
+<ion-card>
+<img  [src]="photo" *ngIf="photo" />
+</ion-card>
+
+</ion-col>
+</ion-row>
+</ion-grid>
 
 <!-- product  saving button -->
 
@@ -82,8 +94,7 @@
 
 
 
- <!--<button ion-button block color="dark" (click)="doAlert()">Show Basic Alert</button>
--->
+
 
 </ion-list>
 

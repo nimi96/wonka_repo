@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 //import PouchDB from 'pouchdb';
 
@@ -24,23 +24,30 @@ private name;
 private desc;
 private price;
 private quan;
+private item;
 public db:any;
 public PouchDB:any;
+public photo:any;
+public base64image:string;
 
+
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {
  
-private item;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
- 
-
-  }
+        }
 
 
 setupdb(){
 
 
 this.db=new PouchDB('items');
-}
+ 
+
+
+  }
+
 
 
   ionViewDidLoad() {
@@ -81,7 +88,6 @@ this.db=new PouchDB('items');
 
 sg(){
 
-
 //this is for update
 if (this.item){
 
@@ -93,35 +99,30 @@ this.item.quan=this.quan;
 this.db.put(this.item,(err,result)=>{
 
 
-if(!err){
+       if(!err){
 
 
-	 let alert = this.alertCtrl.create({
-      title: 'updated succesfully !',
-      message: 'new item updated!',
-      buttons: ['Ok']
-	   });
+	      let alert = this.alertCtrl.create({
+        title: 'updated succesfully !',
+        message: 'new item updated!',
+        buttons: ['Ok']
+	      });
 
-    alert.present()
-
-
-  this.navCtrl.pop();
+      alert.present()
 
 
-}
+      this.navCtrl.pop();
 
 
-} 
+      }
 
 
-);
+      } 
 
 
+      );
 
-
-
-
-}
+      }
 
 //this is for saving 
 
@@ -138,10 +139,6 @@ quan:this.quan
 (err,result)=>{
 if(!err){
 
-
-
-
-
     let alert = this.alertCtrl.create({
       title: 'created!',
       message: 'new item registerd!',
@@ -151,10 +148,6 @@ if(!err){
     });
 
     alert.present()
- 
-
-
-
 
 }
 
@@ -173,6 +166,45 @@ cancel(){
 
 this.navCtrl.push('ApPage');
 
+}
+
+
+
+
+
+takephoto(){
+
+
+  
+   alert("take that ass");
+const options: CameraOptions = {
+  quality: 20,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE
+}
+
+this.camera.getPicture(options).then((imageData) => {
+ // imageData is either a base64 encoded string or a file URI
+ // If it's base64:
+ this.base64image= 'data:image/jpeg;base64,' + imageData;
+ this.photo.push(this.base64image);
+ this.photo.reverse();
+
+
+
+
+}, (err) => {
+ // Handle error
+});
+
+
+}
+
+
+ngOnInit(){
+
+  this.photo=[];
 }
 
 
