@@ -71,23 +71,21 @@
 
 <br> <br>
 
-
 <!--
 <ion-grid>
+
 <ion-row>
   <ion-col col-3 *ngFor="let photo of photos" >
 
 <ion-card>
-<img  [src]="photo">
+<img  [src]="photo" *ngIf="photo" >
 </ion-card>
 
 </ion-col>
 </ion-row>
 </ion-grid>
 
-
 -->
-
 <!-- product  saving button -->
 
 <button ion-button color="secondary"  round (click)="sg()" > save  product and generate qrcode! </button>

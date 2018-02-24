@@ -113,12 +113,16 @@ item  	{{ item.desc}}
 
 </p>
 
+
 <p>
-
-  image:{{item.img}}
-
+image:{{item.img}}
 
 </p>
+
+ <ion-avatar item-start>
+      <img [src]=item.img *ngIf="item.img" >
+    </ion-avatar>
+
 
 
 </ion-item>
