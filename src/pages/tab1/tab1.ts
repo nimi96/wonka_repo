@@ -176,7 +176,7 @@ takephoto(){
 
 
   
-   alert("take that ass");
+   
 const options: CameraOptions = {
   quality: 20,
   destinationType: this.camera.DestinationType.DATA_URL,
