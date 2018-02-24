@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Tab1Page } from '../tab1/tab1';
 import Pouchdb from 'pouchdb';
+import { AlertController } from 'ionic-angular';
 //import * as Pouchdb from 'pouchdb';
 /**
  * Generated class for the ApPage page.
@@ -23,7 +24,7 @@ private db;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController) {
   }
 
 
@@ -95,6 +96,9 @@ this.navCtrl.push(Tab1Page);
 
 Deleteitem(item){
 
+
+
+/*
 if (confirm("are you sure want to delet this ?")){
 
 
@@ -108,18 +112,88 @@ if(!err){
 
 })
 }
+
+
+*/
+
+
+let confirm = this.alertCtrl.create({
+      title: 'Warning',
+      message: 'are you sure want to delete this item??',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
+          
+
+
+
+
+
+
+this.db.remove(item,(err,result)=>{
+
+if(!err){
+
+
+
+
+  let alert = this.alertCtrl.create({
+      title: 'Deleted ',
+      message: 'This product has been deleted !',
+      buttons: ['Ok']
+
+
+    });
+
+    alert.present()
+ 
+
+
+
+  this.refresh();
+
+
+
+
+
+}
+
+})
+
+
+          }
+        }
+      ]
+    });
+    confirm.present();
+
+
+
+
+
+
+
+
 }
 
 
 
 
 
+
+
+
+
+
 updateitem(item){
-
-
-
-
-
 
 this.navCtrl.push('Tab1Page', {
 
@@ -132,3 +206,5 @@ item_id:item._id
 
 
 }
+
+

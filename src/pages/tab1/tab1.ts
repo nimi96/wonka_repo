@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 
 //import PouchDB from 'pouchdb';
 
 import * as PouchDB from 'pouchdb';
+
+
 
 @IonicPage()
 @Component({
@@ -24,10 +26,11 @@ private price;
 private quan;
 public db:any;
 public PouchDB:any;
+
  
 private item;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
  
 
   }
@@ -93,9 +96,16 @@ this.db.put(this.item,(err,result)=>{
 if(!err){
 
 
-	alert('update done right');
-	
-	this.navCtrl.pop();
+	 let alert = this.alertCtrl.create({
+      title: 'updated succesfully !',
+      message: 'new item updated!',
+      buttons: ['Ok']
+	   });
+
+    alert.present()
+
+
+  this.navCtrl.pop();
 
 
 }
@@ -131,6 +141,21 @@ if(!err){
 
 
 
+
+    let alert = this.alertCtrl.create({
+      title: 'created!',
+      message: 'new item registerd!',
+      buttons: ['Ok']
+
+
+    });
+
+    alert.present()
+ 
+
+
+
+
 }
 
 
@@ -149,6 +174,9 @@ cancel(){
 this.navCtrl.push('ApPage');
 
 }
+
+
+
 
 
 }
