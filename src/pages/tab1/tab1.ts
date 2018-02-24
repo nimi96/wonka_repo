@@ -31,7 +31,10 @@ public photo:any;
 public base64image:string;
 public img:any;
 
+public remoteDB:any;
 
+public username;
+ public password;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {
  
@@ -42,8 +45,74 @@ public img:any;
 setupdb(){
 
 
+
+
+this.db = new PouchDB('mytestdb');
+    this.username = 'beircedurreastitsedrisly';
+    this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
+    this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/item/';
+
+
+
+
+
+
+
+
 this.db=new PouchDB('items');
+
+
+
+//let remoteDB = new PouchDB('http://localhost:5984/item');
  
+
+//this.db.sync(remoteDB);
+
+/*
+this.db.sync(remoteDB).on('complete', function () {
+  alert("syning done");
+}).on('error', function (err) {
+  
+  alert(err);
+});
+
+*/
+
+
+this.db.sync(this.remoteDB, {
+  live: true,
+  retry: true
+}).on('change', function (change) {
+  console.log ("yo, something changed!");
+}).on('paused', function (info) {
+  console.log("replication was paused, usually because of a lost connection");
+}).on('active', function (info) {
+  console.log(" replication was resumed");
+}).on('error', function (err) {
+  console.log(" totally unhandled error (shouldn't happen");
+});
+
+
+  let options = {
+      live: true,
+      retry: true,
+      continuous: true,
+      auth: {
+        username: this.username,
+        password: this.password
+      }
+    };
+ 
+    this.db.sync(this.remoteDB, options);
+ 
+  
+ 
+
+
+
+
+
+
 
 
   }
@@ -96,6 +165,7 @@ this.item.name=this.name;
 this.item.desc=this.desc;
 this.item.price=this.price;
 this.item.quan=this.quan;
+this.item.img=this.img;
 this.db.put(this.item,(err,result)=>{
 
 
@@ -211,6 +281,10 @@ this.camera.getPicture(options).then((imageData) => {
 
 
 }
+
+
+
+
 
 
 
