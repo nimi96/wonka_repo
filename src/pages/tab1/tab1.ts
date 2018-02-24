@@ -29,7 +29,7 @@ public db:any;
 public PouchDB:any;
 public photo:any;
 public base64image:string;
-
+public img:any;
 
 
 
@@ -134,7 +134,11 @@ this.db.post({
 name:this.name,
 desc:this.desc,
 price:this.price,
-quan:this.quan
+quan:this.quan,
+img:this.photo
+
+
+
 },
 (err,result)=>{
 if(!err){
@@ -150,6 +154,8 @@ if(!err){
     alert.present()
 
 }
+
+
 
 
 this.navCtrl.push('ApPage');
@@ -188,8 +194,13 @@ this.camera.getPicture(options).then((imageData) => {
  // imageData is either a base64 encoded string or a file URI
  // If it's base64:
  this.base64image= 'data:image/jpeg;base64,' + imageData;
- this.photo.push(this.base64image);
- this.photo.reverse();
+
+ this.photo=this.base64image;
+ 
+
+
+
+// this.photo.reverse();
 
 
 
@@ -201,11 +212,6 @@ this.camera.getPicture(options).then((imageData) => {
 
 }
 
-
-ngOnInit(){
-
-  this.photo=[];
-}
 
 
 
