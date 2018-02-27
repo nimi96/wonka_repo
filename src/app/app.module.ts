@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { Camera } from '@ionic-native/camera';
 //import { Tab1Page } from '../pages/tab1/tab1';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { Camera } from '@ionic-native/camera';
     BrowserModule,
 
   
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +35,8 @@ import { Camera } from '@ionic-native/camera';
     StatusBar,
     SplashScreen,
     Camera,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeScanner
   ]
 })
 export class AppModule {}
