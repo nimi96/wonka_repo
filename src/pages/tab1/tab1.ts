@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-
-//import PouchDB from 'pouchdb';
-
+import {QRCodeComponent} from 'angular2-qrcode';
 import * as PouchDB from 'pouchdb';
 
 
@@ -14,12 +12,8 @@ import * as PouchDB from 'pouchdb';
   templateUrl: 'tab1.html',
 })
 export class Tab1Page {
-
-  
  
-
-//public items:any;
-
+private id;
 private name;
 private desc;
 private price;
@@ -30,20 +24,28 @@ public PouchDB:any;
 public photo:any;
 public base64image:string;
 public img:any;
-
 public remoteDB:any;
-
 public username;
- public password;
+public password;
+public qrData = null;
+public createdCode ;
+public date;
+public e;
+public qdataa;
+public pp;
+public x;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {
- 
 
-        }
+ran(){
+
+this.createdCode=this.date;
+
+}
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {}
 
 
 setupdb(){
-
 
 
 
@@ -51,33 +53,19 @@ this.db = new PouchDB('mytestdb');
     this.username = 'beircedurreastitsedrisly';
     this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
     this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/item/';
-
-
-
-
-
-
-
-
 this.db=new PouchDB('items');
 
 
 
 //let remoteDB = new PouchDB('http://localhost:5984/item');
- 
-
-//this.db.sync(remoteDB);
-
+ //this.db.sync(remoteDB);
 /*
 this.db.sync(remoteDB).on('complete', function () {
   alert("syning done");
 }).on('error', function (err) {
-  
-  alert(err);
+alert(err);
 });
-
 */
-
 
 this.db.sync(this.remoteDB, {
   live: true,
@@ -92,7 +80,6 @@ this.db.sync(this.remoteDB, {
   console.log(" totally unhandled error (shouldn't happen");
 });
 
-
   let options = {
       live: true,
       retry: true,
@@ -104,32 +91,69 @@ this.db.sync(this.remoteDB, {
     };
  
     this.db.sync(this.remoteDB, options);
+     }
+
+
+
+
+
+public element;
+
+gq(){
+this.date=(Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
+//alert(this.date);
+this.getimgdata();  
+
+}
+
+
+
+getimgdata(){
+
+this.element=document.getElementById("qp");
+
+console.log(this.element);
+
+if (this.element==null) {
  
-  
- 
+ console.log("this shit it null");
+
+
+}
+else{
 
 
 
+this.x = this.element.getElementsByTagName("img");
+
+console.log(this.x[0]);
+
+
+ }
+
+
+}
 
 
 
+ionViewDidEnter(){
 
 
-  }
+this.gq();
 
+}
 
 
   ionViewDidLoad() {
 
+ 
+
+
+
  this.setupdb();
     
 
-    //console.log('ionViewDidLoad Tab1Page');
-
-
-    if(this.navParams.get('item_id')!=null){
-
-
+   if(this.navParams.get('item_id')!=null){
 
     	this.db.get(this.navParams.get('item_id'),(err, result)=>{
 
@@ -141,10 +165,8 @@ this.db.sync(this.remoteDB, {
                  this.desc=result.desc;
                  this.price=result.price;
                  this.quan=result.quan;
-
-    			//console.log('hey'+result.name);
-    			//this.name=result.name;
-
+                 this.id=result._id;
+            
     		}
 
 
@@ -153,14 +175,22 @@ this.db.sync(this.remoteDB, {
 
   
 
+
+
+
   }
+
+
+
+
+
 
 sg(){
 
+
+
 //this is for update
 if (this.item){
-
-
 this.item.name=this.name;
 this.item.desc=this.desc;
 this.item.price=this.price;
@@ -192,28 +222,37 @@ this.db.put(this.item,(err,result)=>{
 
       );
 
+     
       }
 
 //this is for saving 
 
+
 else{
+//json to be passed to save data.  
 
-	
 
-this.db.post({
+this.pp=this.x["0"].currentSrc;
+
+console.log("HEY"+this.x["0"].currentSrc);
+
+
+this.db.post(
+{
 name:this.name,
 desc:this.desc,
 price:this.price,
 quan:this.quan,
-img:this.photo
-
-
+img:this.photo,
+date:this.date,
+code:this.pp,
 
 },
+
 (err,result)=>{
 if(!err){
-
-    let alert = this.alertCtrl.create({
+  console.log(this.date);
+ let alert = this.alertCtrl.create({
       title: 'created!',
       message: 'new item registerd!',
       buttons: ['Ok']
@@ -223,18 +262,27 @@ if(!err){
 
     alert.present()
 
+
+
+
+
+
 }
 
 
-
-
 this.navCtrl.push('ApPage');
+
+
 })
 
 
 
 }
+
+
+
 }
+
 
 
 
@@ -248,11 +296,11 @@ this.navCtrl.push('ApPage');
 
 
 
+
+
+
+
 takephoto(){
-
-
-  
-   
 const options: CameraOptions = {
   quality: 20,
   destinationType: this.camera.DestinationType.DATA_URL,
@@ -267,27 +315,12 @@ this.camera.getPicture(options).then((imageData) => {
 
  this.photo=this.base64image;
  
-
-
-
-// this.photo.reverse();
-
-
-
-
 }, (err) => {
  // Handle error
 });
 
 
 }
-
-
-
-
-
-
-
 
 
 

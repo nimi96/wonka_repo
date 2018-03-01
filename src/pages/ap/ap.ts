@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Tab1Page } from '../tab1/tab1';
 import Pouchdb from 'pouchdb';
 import { AlertController } from 'ionic-angular';
+import {QRCodeComponent} from 'angular2-qrcode';
 //import * as Pouchdb from 'pouchdb';
 /**
  * Generated class for the ApPage page.

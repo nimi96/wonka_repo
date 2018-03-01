@@ -37,7 +37,7 @@
 <br>
 
 
-<button ion-button full color="danger"><ion-icon name="md-barcode"> </ion-icon> scan QrCode 
+<button ion-button full color="danger"  (click)="scanQR()" ><ion-icon name="md-barcode" > </ion-icon> scan QrCode 
   
 
 
@@ -53,7 +53,7 @@
 
 
 
-<ion-input placeholder="enter product Id"  type="Clear Input" padding  text-center > </ion-input>
+<ion-input placeholder="enter product Id"  type="Clear Input" padding  text-center   [value]=scannedCode  > </ion-input>
 
 
 <div text-center align-items-center>

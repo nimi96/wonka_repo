@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 /**
  * Generated class for the PdPage page.
  *
@@ -15,11 +15,40 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PdPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+ qrData = null;
+  createdCode = null;
+  scannedCode = null;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public barcodeScanner: BarcodeScanner) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PdPage');
   }
+
+
+
+
+
+scanQR(){
+
+
+
+	 this.barcodeScanner.scan().then(barcodeData => {
+      this.scannedCode = barcodeData.text;
+    
+    }, (err) => {
+        
+        console.log('Error: ', err);
+ 
+
+    });
+ 
+}
+
+  
 
 }

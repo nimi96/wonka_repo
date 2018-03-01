@@ -18,7 +18,7 @@
      </button> 
     </ion-buttons>
 
-    <ion-title>product enquire </ion-title>
+    <ion-title>product updation  </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -28,6 +28,53 @@
 
 
 
-product updation page
+<div text-center align-items-center>
+
+<h6  text-center > This is product updation!   </h6>
+
+<h6  text-center > scan qr code or enter prodcut  id  to know more:  </h6>
+
+
+
+
+
+<button ion-button full color="danger"  (click)="scanQR()" ><ion-icon name="md-barcode" > </ion-icon> scan QrCode 
+  
+
+
+</button>
+
+
+<Br>
+
+<ion-title>or </ion-title>
+
+</div>
+
+
+
+
+<div>
+
+
+
+<ion-input placeholder="enter product Id"  type="Clear Input" padding  text-center   [value]=scannedCode  > </ion-input>
+
+
+
+
+<div text-center align-items-center  >
+
+
+<button ion-button color="secondary"   ion-button round  light >
+ update product 
+  
+
+  </button>
+
+</div>
+
+
+</div>
 
 </ion-content>

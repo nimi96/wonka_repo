@@ -25,9 +25,6 @@
   <ion-item>
     <ion-label  color="danger" >product name</ion-label>
     <ion-input placeholder="enter product name"  type="Clear Input"  [(ngModel)]="name"     > </ion-input>
-
-
-
   </ion-item>
 
 
@@ -88,13 +85,36 @@
 -->
 <!-- product  saving button -->
 
-<button ion-button color="secondary"  round (click)="sg()" > save  product and generate qrcode! </button>
+
+
+
+
+<button ion-button color="dark"  round (click)="gq()" > generate qrcode! </button>
+
+<button ion-button color="secondary"  round (click)="sg()"   *ngIf="date"  > save  product  </button>
+<br>
 
 <button ion-button color="danger"  round (click)="cancel()" > cancel </button>
 
 </div>
 
 
+
+  <ion-card  *ngIf="date" >
+   
+
+   <div>
+    
+
+      <qr-code [(value)]="date" [size]="150"  id="qp" ></qr-code>
+    
+
+    </div>
+   
+    <ion-card-content>
+      <p>Value: {{ date }}</p>
+    </ion-card-content>
+  </ion-card>  
 
 
 

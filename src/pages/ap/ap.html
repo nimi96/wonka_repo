@@ -108,7 +108,7 @@ item  	{{ item.desc}}
 
 <p>
 
-  item id :{{item._id}}
+  item id :{{item.date}}
 
 
 </p>
@@ -119,9 +119,17 @@ image:{{item.img}}
 
 </p>
 
+<p>
+
+Qrcode: <br>
+<img [src]=item.code *ngIf="item.code" >
+</p>
+
  <ion-avatar item-start>
       <img [src]=item.img *ngIf="item.img" >
     </ion-avatar>
+
+
 
 
 
