@@ -86,15 +86,15 @@
 <!-- product  saving button -->
 
 
-<!--
+
 
 
 <button ion-button color="dark"  round (click)="gq()" > generate qrcode! </button>
 
 
--->
 
-<button ion-button color="secondary"  round (click)="sg()"   *ngIf="date"  > save  product  </button>
+
+<button ion-button color="secondary"  round (click)="sg()"     > save  product  </button>
 <br>
 
 <button ion-button color="danger"  round (click)="cancel()" > cancel </button>
@@ -105,17 +105,17 @@
 
   <ion-card  *ngIf="date" >
    
-<!--
+
    <div>
     
 
-      <qr-code [(value)]="date" [size]="150"  id="qp" ></qr-code>
+       <ngx-qrcode [qrc-value]="date" id="qp" ></ngx-qrcode>
     
 
     </div>
 
 
-  -->
+
    
     <ion-card-content>
       <p>Value: {{ date }}</p>

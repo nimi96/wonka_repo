@@ -101,11 +101,13 @@ this.db.sync(this.remoteDB, {
 
 
 
-/*
+
 
 gq(){
 this.date=(Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
-//alert(this.date);
+
+alert(this.date);
+
 this.getimgdata();  
 
 }
@@ -114,13 +116,19 @@ this.getimgdata();
 
 getimgdata(){
 
-this.element=document.getElementById("qp");
 
-console.log(this.element);
+this.element=document.getElementsByClassName("qrcode");
+
+console.log("thiis is element"+this.element);
+
 
 if (this.element==null) {
  
- console.log("this shit it null");
+
+
+ alert("this shit is null");
+
+
 
 
 }
@@ -128,24 +136,27 @@ else{
 
 
 
-this.x = this.element.getElementsByTagName("img");
+this.x = this.element.innerHTML;
 
-console.log(this.x[0]);
+console.log("inner"+this.x);
+
 
 
  }
+
+
 
 
 }
 
 
 
-*/
+
 
 ionViewDidEnter(){
 
 
-//this.gq();
+this.gq();
 
 }
 
@@ -238,9 +249,9 @@ else{
 //json to be passed to save data.  
 
 
-this.pp=this.x["0"].currentSrc;
+//this.pp=this.x["0"].currentSrc;
 
-console.log("HEY"+this.x["0"].currentSrc);
+//console.log("HEY"+this.x["0"].currentSrc);
 
 
 this.db.post(
@@ -250,8 +261,8 @@ desc:this.desc,
 price:this.price,
 quan:this.quan,
 img:this.photo,
-date:this.date,
-code:this.pp,
+//date:this.date,
+//code:this.pp,
 
 },
 
