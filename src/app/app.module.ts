@@ -6,9 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { Camera } from '@ionic-native/camera';
 //import { Tab1Page } from '../pages/tab1/tab1';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
+//import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { QRCodeModule } from 'angular2-qrcode';
+//import { QRCodeModule } from 'angular2-qrcode';
 
 
 @NgModule({
@@ -21,12 +21,13 @@ import { QRCodeModule } from 'angular2-qrcode';
 
   imports: [
     BrowserModule,
-    NgxQRCodeModule,
+ //   NgxQRCodeModule,
+  //  QRCodeModule,
 
   
     IonicModule.forRoot(MyApp),
-    NgxQRCodeModule,
-     QRCodeModule,
+    //NgxQRCodeModule,
+     //QRCodeModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

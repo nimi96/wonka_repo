@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+
 import * as PouchDB from 'pouchdb';
+//import { QRCodeModule } from 'angular2-qrcode';
 
 
+//declare var QRCodeModule: any;
 
 @IonicPage()
 @Component({
@@ -33,6 +36,7 @@ public e;
 public qdataa;
 public pp;
 public x;
+public element;
 
 
 ran(){
@@ -96,7 +100,8 @@ this.db.sync(this.remoteDB, {
 
 
 
-public element;
+
+/*
 
 gq(){
 this.date=(Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
@@ -135,10 +140,12 @@ console.log(this.x[0]);
 
 
 
+*/
+
 ionViewDidEnter(){
 
 
-this.gq();
+//this.gq();
 
 }
 
