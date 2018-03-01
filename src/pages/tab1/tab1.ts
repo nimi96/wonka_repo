@@ -106,7 +106,7 @@ this.db.sync(this.remoteDB, {
 gq(){
 this.date=(Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
 
-alert(this.date);
+//alert(this.date);
 
 this.getimgdata();  
 
@@ -126,7 +126,7 @@ if (this.element==null) {
  
 
 
- alert("this shit is null");
+ //alert("this shit is null");
 
 
 
@@ -136,16 +136,32 @@ else{
 
 
 
-this.x = this.element.innerHTML;
+this.x = this.element[0];
 
-console.log("inner"+this.x);
+if(this.x==undefined){
 
 
 
+  //alert("boo")
+
+}
+
+else{
+
+//alert("foo");
+console.log(this.x.innerHTML);
+
+var c=document.getElementsByTagName("img");
+
+
+console.log(c);
+
+this.pp=c["0"].currentSrc;
+console.log(this.pp);
+
+
+}
  }
-
-
-
 
 }
 
@@ -254,6 +270,9 @@ else{
 //console.log("HEY"+this.x["0"].currentSrc);
 
 
+//var y =this.x.toString();
+//console.log(y);
+
 this.db.post(
 {
 name:this.name,
@@ -261,8 +280,8 @@ desc:this.desc,
 price:this.price,
 quan:this.quan,
 img:this.photo,
-//date:this.date,
-//code:this.pp,
+date:this.date,
+code:this.pp,
 
 },
 

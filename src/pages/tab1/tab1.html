@@ -89,10 +89,10 @@
 
 
 
-<button ion-button color="dark"  round (click)="gq()" > generate qrcode! </button>
+<button ion-button color="dark"  round (click)="gq()"  *ngIf="date"  > generate qrcode! </button>
 
 
-
+<br>
 
 <button ion-button color="secondary"  round (click)="sg()"     > save  product  </button>
 <br>
