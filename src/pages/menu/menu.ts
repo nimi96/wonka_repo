@@ -38,6 +38,7 @@ export class MenuPage {
      {title:'report', pagename:'RepoPage',icon:'stats'},
      {title:'All products', pagename:'ApPage',icon:'ios-archive'},
    
+     {title:'pp', pagename:'Try1Page',icon:'ios-archive'},
     
 
 
