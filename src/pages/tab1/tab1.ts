@@ -39,11 +39,6 @@ public x;
 public element;
 
 
-ran(){
-
-this.createdCode=this.date;
-
-}
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {}
 
@@ -104,9 +99,10 @@ this.db.sync(this.remoteDB, {
 
 
 gq(){
+
 this.date=(Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
 
-//alert(this.date);
+alert(this.date);
 
 this.getimgdata();  
 
@@ -169,18 +165,11 @@ console.log(this.pp);
 
 
 
-ionViewDidEnter(){
-
-
-this.gq();
-
-}
-
 
   ionViewDidLoad() {
 
  
-
+this.gq();
 
 
  this.setupdb();
@@ -262,16 +251,6 @@ this.db.put(this.item,(err,result)=>{
 
 
 else{
-//json to be passed to save data.  
-
-
-//this.pp=this.x["0"].currentSrc;
-
-//console.log("HEY"+this.x["0"].currentSrc);
-
-
-//var y =this.x.toString();
-//console.log(y);
 
 this.db.post(
 {
@@ -280,8 +259,9 @@ desc:this.desc,
 price:this.price,
 quan:this.quan,
 img:this.photo,
-date:this.date,
 code:this.pp,
+date:this.date,
+
 
 },
 

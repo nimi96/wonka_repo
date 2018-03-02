@@ -129,7 +129,10 @@ image:{{item.img}}
 code: 
 
 <br>
-<img [src]=item.code *ngIf="item.code" >
+
+
+
+ <ngx-qrcode [qrc-value]="item.date"  ></ngx-qrcode>
 
 
 
