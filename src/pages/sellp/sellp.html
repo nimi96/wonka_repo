@@ -21,12 +21,29 @@
 
 <ion-content padding>
 
+
+<ion-card>
+
+   
+	<p>current quantity:{{quan}}
+
+<br>
+Name:{{name}}
+</ion-card>
+
+
+
 <ion-list  padding>
 
+
+
+
+
+<div text-center align-items-center>
  <ion-item>
     <ion-label  color="danger" >enter quantity</ion-label>
   </ion-item>
-    <ion-input placeholder="enter product name"  type="Clear Input"  [(ngModel)]="quan1"     > </ion-input>
+    <ion-input placeholder="enter quantity"  type="Clear Input"  [(ngModel)]="quan1"     > </ion-input>
 
 
 <br>
@@ -35,6 +52,6 @@
 
 <br>
 
-
+</div>
 </ion-list>
 </ion-content>

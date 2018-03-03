@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-
 import * as PouchDB from 'pouchdb';
 //import { QRCodeModule } from 'angular2-qrcode';
 
@@ -184,7 +183,7 @@ this.gq();
 
     		if(!err){
 
-    			this.item=result;
+    		        	this.item=result;
     			
                  this.name=result.name;
                  this.desc=result.desc;
