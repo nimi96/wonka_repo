@@ -19,7 +19,7 @@ export class Tab2Page {
 
 	 qrData = null;
   createdCode = null;
-  scannedCode = null;
+  scannedCode ="9B39E2FA-5DD6-E5B8-8ED5-9D5AE2DA57C4";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public barcodeScanner: BarcodeScanner) {
   }
@@ -47,7 +47,14 @@ scanCode(){
   }
 
 
- 
+
+
+sellp(){
+
+
+this.navCtrl.push('SellpPage',{item_id:this.scannedCode});
+
+} 
 
 
 

@@ -55,6 +55,8 @@ export class MenuPage {
 
 
 openPage(page:pageInterface){
+
+
 let params={};
 
 
@@ -62,7 +64,7 @@ let params={};
 if(page.index){
 params={tabIndex: page.index};
 }
-if(this.nav.getActiveChildNav() && page.index !=undefined){
+if(this.nav.getActiveChildNav() && page.index !==undefined){
   this.nav.getActiveChildNav().select(page.index);
 } 
 else

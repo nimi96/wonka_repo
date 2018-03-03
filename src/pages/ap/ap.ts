@@ -38,6 +38,8 @@ ionViewDidEnter(){
 
 
 refresh(){
+
+
 this.db=new Pouchdb('items')
 
 this.items=[];
@@ -69,11 +71,12 @@ this.items.push(rows[i].doc);
 
 })
 
-
-
-
-
 }
+
+ 
+
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ApPage');
@@ -83,7 +86,6 @@ this.items.push(rows[i].doc);
 
 addproduct(){
 
-//alert("adding");
 
 
 this.navCtrl.push(Tab1Page);
@@ -155,13 +157,7 @@ if(!err){
 
     alert.present()
  
-
-
-
   this.refresh();
-
-
-
 
 
 }
@@ -187,19 +183,12 @@ if(!err){
 
 
 
-
-
-
-
-
-
 updateitem(item){
 
-this.navCtrl.push('Tab1Page', {
+this.navCtrl.push('Tab1Page', {item_id:item._id})
 
-item_id:item._id
 
-})
+
 }
 
 

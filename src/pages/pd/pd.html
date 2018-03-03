@@ -19,9 +19,15 @@
     </ion-buttons>
 
     <ion-title>product updation  </ion-title>
+  
+
   </ion-navbar>
 
 </ion-header>
+
+
+
+
 
 
 <ion-content padding>
@@ -58,7 +64,7 @@
 
 
 
-<ion-input placeholder="enter product Id"  type="Clear Input" padding  text-center   [value]=scannedCode  > </ion-input>
+<ion-input placeholder="enter product Id"  type="Clear Input" padding  text-center   [value]=scannedCode > </ion-input>
 
 
 
@@ -66,11 +72,7 @@
 <div text-center align-items-center  >
 
 
-<button ion-button color="secondary"   ion-button round  light >
- update product 
-  
-
-  </button>
+<button ion-button color="secondary"   ion-button round  light  (click)="updatepro(scannedCode)" > update product  </button>
 
 </div>
 

@@ -52,7 +52,7 @@
 
 <ion-title  center >or</ion-title>
 
-<ion-input placeholder="enter product Id"  type="Clear Input" padding  text-center   [value]=scannedCode    > </ion-input>
+<ion-input placeholder="enter product Id"  type="Clear Input" padding  text-center   [value]=scannedCode > </ion-input>
 
 <br>
 
@@ -63,7 +63,7 @@
 <div text-center align-items-center>
 
 
-<button ion-button  color="secondary"    text-center  [round]="isRound"     > Sell Prduct   </button>
+<button ion-button  color="secondary"    text-center  [round]="isRound"   (click)="sellp()"      > Sell Prduct   </button>
 
 
 
@@ -73,17 +73,6 @@
 </div>
 
 </ion-list>
-
-<ion-card *ngIf="scannedCode">
-    <ion-card-content>
-      Result from Scan: {{ scannedCode }}
-    </ion-card-content>
-  </ion-card>
-
-
-
-
-
 
 
 this is sale out

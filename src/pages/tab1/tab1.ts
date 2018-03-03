@@ -38,6 +38,7 @@ public pp;
 public x;
 public element;
 
+public title="item reg";
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {}
@@ -176,6 +177,8 @@ this.gq();
     
 
    if(this.navParams.get('item_id')!=null){
+       
+       this.title="item update"
 
     	this.db.get(this.navParams.get('item_id'),(err, result)=>{
 
@@ -213,6 +216,10 @@ sg(){
 
 //this is for update
 if (this.item){
+
+
+
+
 this.item.name=this.name;
 this.item.desc=this.desc;
 this.item.price=this.price;

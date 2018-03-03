@@ -108,7 +108,7 @@ item  	{{ item.desc}}
 
 <p>
 
-  item id :{{item.date}}
+  item id :{{item._id}}
 
 
 </p>
@@ -132,7 +132,7 @@ code:
 
 
 
- <ngx-qrcode [qrc-value]="item.date"  ></ngx-qrcode>
+ <ngx-qrcode [qrc-value]="item._id"  ></ngx-qrcode>
 
 
 
@@ -155,6 +155,8 @@ code:
         <ion-icon name="create" ></ion-icon>
         EDIT 
       </button>
+      
+
       
     </ion-item-options>
     <ion-item-options side="right">

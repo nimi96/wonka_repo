@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-/**
- * Generated class for the SpecialPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -18,7 +13,8 @@ export class SpecialPage {
 
 	 qrData = null;
   createdCode = null;
-  scannedCode = null;
+  scannedCode = "9B39E2FA-5DD6-E5B8-8ED5-9D5AE2DA57C4";
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public barcodeScanner: BarcodeScanner) {
@@ -44,6 +40,21 @@ scanQR(){
     });
  
 }
+
+
+geten(){
+
+
+
+//alert("hey this is get enquiry ");
+
+this.navCtrl.push('PenqPage',{item_id:this.scannedCode});
+
+
+
+
+}
+
 
 
 }
