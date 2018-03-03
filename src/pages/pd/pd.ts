@@ -90,7 +90,7 @@ updatepro(scannedCode){
 
 
 
-alert(this.scannedCode);
+//alert(this.scannedCode);
 
 
 this.navCtrl.push('Tab1Page',{item_id:this.scannedCode} );
