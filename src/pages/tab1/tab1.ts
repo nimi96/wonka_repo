@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as PouchDB from 'pouchdb';
-//import { QRCodeModule } from 'angular2-qrcode';
 
 
-//declare var QRCodeModule: any;
 
 @IonicPage()
 @Component({
@@ -36,11 +34,20 @@ public qdataa;
 public pp;
 public x;
 public element;
+public date1;
 
+public now;
 public title="item reg";
 
+public datee:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {}
+
+
+ string = new Date().toISOString();
+
+
+
 
 
 setupdb(){
@@ -51,6 +58,7 @@ this.db = new PouchDB('mytestdb');
     this.username = 'beircedurreastitsedrisly';
     this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
     this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/item/';
+
 this.db=new PouchDB('items');
 
 
@@ -95,71 +103,8 @@ this.db.sync(this.remoteDB, {
 
 
 
-
-
-
-gq(){
-
-this.date=(Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
-
-//alert(this.date);
-
-this.getimgdata();  
-
-}
-
-
-
-getimgdata(){
-
-
-this.element=document.getElementsByClassName("qrcode");
-
-console.log("thiis is element"+this.element);
-
-
-if (this.element==null) {
  
 
-
- //alert("this shit is null");
-
-
-
-
-}
-else{
-
-
-
-this.x = this.element[0];
-
-if(this.x==undefined){
-
-
-
-  //alert("boo")
-
-}
-
-else{
-
-//alert("foo");
-console.log(this.x.innerHTML);
-
-var c=document.getElementsByTagName("img");
-
-
-console.log(c);
-
-this.pp=c["0"].currentSrc;
-console.log(this.pp);
-
-
-}
- }
-
-}
 
 
 
@@ -168,8 +113,8 @@ console.log(this.pp);
 
   ionViewDidLoad() {
 
- 
-this.gq();
+
+
 
 
  this.setupdb();
@@ -184,7 +129,6 @@ this.gq();
     		if(!err){
 
     		        	this.item=result;
-    			
                  this.name=result.name;
                  this.desc=result.desc;
                  this.price=result.price;
@@ -197,12 +141,7 @@ this.gq();
     	})
     }
 
-  
-
-
-
-
-  }
+    }
 
 
 
@@ -223,7 +162,7 @@ this.item.name=this.name;
 this.item.desc=this.desc;
 this.item.price=this.price;
 this.item.quan=this.quan;
-this.item.img=this.img;
+this.item.img=this.photo;
 this.db.put(this.item,(err,result)=>{
 
 
@@ -258,6 +197,23 @@ this.db.put(this.item,(err,result)=>{
 
 else{
 
+
+
+ this.date1 = new Date();
+
+var month = this.date1.getUTCMonth() + 1;
+
+var day = this.date1.getUTCDate();
+
+var year = this.date1.getUTCFullYear();
+ 
+
+var newdate=day + "/" + month + "/" + year;
+ //this.now=this.date1.getFullYear();
+
+//console.log("this is date"+this.date1);
+
+
 this.db.post(
 {
 name:this.name,
@@ -266,14 +222,14 @@ price:this.price,
 quan:this.quan,
 img:this.photo,
 code:this.pp,
-date:this.date,
+date:newdate,
 
 
 },
 
 (err,result)=>{
 if(!err){
-  console.log(this.date);
+  
  let alert = this.alertCtrl.create({
       title: 'created!',
       message: 'new item registerd!',

@@ -9,8 +9,8 @@
 
     <ion-header>
 
-        <ion-navbar  color="danger">
-            <ion-title>Menu</ion-title>
+        <ion-navbar   color="danger">
+                  <ion-title>Menu</ion-title>
         </ion-navbar>
 
     </ion-header>
@@ -21,7 +21,7 @@
         <ion-list>
             <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" > 
 
-<ion-icon item-start [name]="p.icon" color="isActive(p)" ></ion-icon>
+<ion-icon item-start [name]="p.icon" [color]="isActive(p)" ></ion-icon>
    
              
 

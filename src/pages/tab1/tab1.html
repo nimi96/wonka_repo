@@ -36,6 +36,7 @@
  
 <ion-item>
     <ion-textarea placeholder="Enter product description"  color="danger"   [(ngModel)]="desc"   ></ion-textarea>
+  
   </ion-item>
 
 <!--Product quantity Field  -->
@@ -68,62 +69,23 @@
 
 <br> <br>
 
-<!--
-<ion-grid>
 
-<ion-row>
-  <ion-col col-3 *ngFor="let photo of photos" >
-
-<ion-card>
-<img  [src]="photo" *ngIf="photo" >
-</ion-card>
-
-</ion-col>
-</ion-row>
-</ion-grid>
-
--->
-<!-- product  saving button -->
-
-
-
-
-<!--
-<button ion-button color="dark"  round (click)="gq()"    > generate qrcode! </button>
--->
 <br>
 
-<button ion-button color="secondary"  round (click)="sg()"   *ngIf="date"  > save  product  </button>
+<button ion-button color="secondary"  round (click)="sg()"  > save  product  </button>
 <br>
 
 <button ion-button color="danger"  round (click)="cancel()" > cancel </button>
 
 </div>
 
-<!--
-
-  <ion-card  *ngIf="date" >
-   
-
-   <div>
-    
-
-       <ngx-qrcode [qrc-value]="date" id="qp" ></ngx-qrcode>
-    
-
-    </div>
-
-  
 
 
 
-   
-    <ion-card-content>
-      <p>Value: {{ date }}</p>
-    </ion-card-content>
-  </ion-card>  
 
--->
+
+
+
 
 
 </ion-list>

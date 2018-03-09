@@ -29,5 +29,89 @@
 <ion-content padding>
 
 
+
+
+<ion-row center >
+
+
+  <ion-label color="primary"   text-center  (click)="today()"  > Get Todays Report</ion-label>
+
+
+  </ion-row>
+
+
+<br>
+<br>
+
+ <ion-label color="primary"   text-center   > Get Report of specific date </ion-label>
+
+
+<ion-row center >
+
+
+
+
+<ion-item>
+
+ 
+
+
+  
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate">  </ion-datetime>
+<br>
+  
+  <ion-label color="primary"   text-center   >  Date </ion-label>
+ 
+</ion-item>
+
+
+</ion-row>
+
+<Br> <br>
+
+
+<div text-center align-items-center>
+
+<button    (click)="SD()"   *ngIf="myDate"   ion-button >  Get</button>
+
+</div>
+
+<Br>
+
+
+
+
+ <ion-label color="primary"   text-center   > Get report of Specific period </ion-label>
+
+<ion-item>
+
+
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="from">  </ion-datetime>
+<br>
+  
+  <ion-label color="primary"   text-center   >  from  </ion-label>
+ 
+</ion-item>
+
+
+
+<ion-item>
+
+
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="to">  </ion-datetime>
+<br>
+  
+  <ion-label color="primary"   text-center   >  TO  </ion-label>
+ 
+</ion-item>
+
+
+<div text-center align-items-center>
+
+<button   ion-button   (click)="SM()"   *ngIf="to && from"   >  Get</button>
+
+</div>
+
+
 this is report page
 </ion-content>

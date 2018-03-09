@@ -15,11 +15,55 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RepoPage {
 
+public myDate:any;
+
+
+public from:any;
+
+public to:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RepoPage');
+ 
+
   }
+
+
+
+
+
+
+
+today(){
+
+
+
+	alert("this is today");
+
+
+
+}
+
+
+
+SD(){
+
+
+	alert(this.myDate);
+}
+
+
+
+
+
+SM(){
+
+alert("this is from"+this.from+"this is to "+this.to);
+
+
+}
 
 }
