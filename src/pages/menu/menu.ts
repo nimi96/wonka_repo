@@ -83,7 +83,7 @@ isActive(page:pageInterface){
 let childNav=this.nav.getActiveChildNav();
 if (childNav) {
   
-console.log("hey");
+
 
   if(childNav.getSelected() &&  childNav.getSelected().root === page.tabcomponent){
 

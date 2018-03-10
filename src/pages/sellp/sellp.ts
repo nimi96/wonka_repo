@@ -23,7 +23,16 @@ private items;
 private quan;
 private currentquan;
 private quan1=0;
+private db2;
+private desc;
+private price;
+private image;
+private solditems;
+private code;
+private date1;
 
+
+private newdate;
   constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController) {
   }
 
@@ -53,19 +62,6 @@ this.refresh();
 
     	})
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -120,7 +116,12 @@ console.log(result.quan);
 
 this.quan=result.quan;
 this.name=result.name;
- } 
+this.desc=result.desc;
+this.price=result.price;
+this.image=result.img;
+ 
+ this.code=result.code;
+} 
 }
 
 );
@@ -183,12 +184,61 @@ else {
   
 //alert("this can be possible");
 
+
+this.date1 = new Date();
+var month = this.date1.getUTCMonth() + 1;
+var day = this.date1.getUTCDate();
+var year = this.date1.getUTCFullYear();
+this.newdate=month+ "/" + day + "/" + year;
+
+
+
+//this.newdate='3/11/2018';
+
 this.item.quan=this.currentquan
+
 
 
 this.db.put(this.item,(err,result)=>{
 
 if(!err){
+
+
+this.db2=new Pouchdb('solditem')
+this.solditems=[];
+
+
+
+
+this.db2.post({name:this.item.name,
+desc:this.item.desc,
+price:this.item.price,
+quantity:this.item.quan,
+image:this.item.image,
+code:this.item.code,
+soldq:this.quan1,
+date:this.newdate,
+
+
+ }, (err,result)=>{
+
+if(!err){
+
+
+console.log(this.db2.result);
+
+
+
+}
+
+
+
+});
+
+
+
+
+
 
 
 
@@ -200,6 +250,25 @@ let alert = this.alertCtrl.create({
         });
 
       alert.present()
+
+
+
+
+
+
+
+
+//alert(this.item.desc);
+console.log(this.item.desc);
+
+
+
+
+
+
+
+
+
 
 
 	this.navCtrl.pop();
@@ -221,9 +290,14 @@ else{
 
 
 
+ 
+
+
 
 
 }
+
+
 
 
 

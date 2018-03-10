@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as PouchDB from 'pouchdb';
-import * as moment from 'moment';
 
 
 @IonicPage()
@@ -198,20 +197,11 @@ this.db.put(this.item,(err,result)=>{
 else{
 
 
-
- this.date1 = new Date();
-
+this.date1 = new Date();
 var month = this.date1.getUTCMonth() + 1;
-
 var day = this.date1.getUTCDate();
-
 var year = this.date1.getUTCFullYear();
- 
-
-var newdate=day + "/" + month + "/" + year;
- //this.now=this.date1.getFullYear();
-
-//console.log("this is date"+this.date1);
+var newdate=month+ "/" + day + "/" + year;
 
 
 this.db.post(

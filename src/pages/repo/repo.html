@@ -8,7 +8,6 @@
 
 
 
-
   <ion-navbar>
 
 
@@ -34,16 +33,24 @@
 <ion-row center >
 
 
-  <ion-label color="primary"   text-center  (click)="today()"  > Get Todays Report</ion-label>
+  <ion-label color="primary"   text-center    > Get Todays Report</ion-label>
 
 
   </ion-row>
 
+<div text-center align-items-center>
+
+<button   ion-button   (click)="today()" >  Get</button>
+
+</div>
+
+
+
 
 <br>
 <br>
 
- <ion-label color="primary"   text-center   > Get Report of specific date </ion-label>
+ <ion-label color="danger"   text-center   > Get Report of specific date </ion-label>
 
 
 <ion-row center >
@@ -55,9 +62,7 @@
 
  
 
-
-  
-  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate">  </ion-datetime>
+ <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="myDate">  </ion-datetime>
 <br>
   
   <ion-label color="primary"   text-center   >  Date </ion-label>
@@ -81,12 +86,12 @@
 
 
 
- <ion-label color="primary"   text-center   > Get report of Specific period </ion-label>
+ <ion-label color="secondary"   text-center   > Get report of Specific period </ion-label>
 
 <ion-item>
 
 
-  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="from">  </ion-datetime>
+  <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="from">  </ion-datetime>
 <br>
   
   <ion-label color="primary"   text-center   >  from  </ion-label>
@@ -98,7 +103,7 @@
 <ion-item>
 
 
-  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="to">  </ion-datetime>
+  <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="to">  </ion-datetime>
 <br>
   
   <ion-label color="primary"   text-center   >  TO  </ion-label>
