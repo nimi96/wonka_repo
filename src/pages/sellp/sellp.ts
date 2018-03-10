@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,AlertController  } from 'ionic-angular';
 import Pouchdb from 'pouchdb';
+import * as moment from 'moment';
 /**
  * Generated class for the SellpPage page.
  *
@@ -29,10 +30,10 @@ private price;
 private image;
 private solditems;
 private code;
-private date1;
 
+private try;
+private res;
 
-private newdate;
   constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController) {
   }
 
@@ -184,16 +185,26 @@ else {
   
 //alert("this can be possible");
 
+/*
 
 this.date1 = new Date();
 var month = this.date1.getUTCMonth() + 1;
 var day = this.date1.getUTCDate();
 var year = this.date1.getUTCFullYear();
 this.newdate=month+ "/" + day + "/" + year;
+*/
 
 
 
-//this.newdate='3/11/2018';
+this.try=moment().format();  
+console.log(this.try);
+this.res = this.try.slice(0, 10);
+console.log(this.res);
+
+
+
+
+//this.res='2018-03-09';
 
 this.item.quan=this.currentquan
 
@@ -217,7 +228,7 @@ quantity:this.item.quan,
 image:this.item.image,
 code:this.item.code,
 soldq:this.quan1,
-date:this.newdate,
+date:this.res,
 
 
  }, (err,result)=>{

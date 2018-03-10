@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import Pouchdb from 'pouchdb';
+import * as moment from 'moment';
+
 /**
  * Generated class for the ReportdayPage page.
  *
@@ -29,7 +31,8 @@ public solddate:any;
 public date1:any;
 public createdate:any;
 
-
+public try;
+public res;
 
 
 
@@ -38,7 +41,7 @@ public createdate:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-alert(this.navParams.get('date'))
+//alert(this.navParams.get('date'))
 
 
   }
@@ -47,10 +50,7 @@ alert(this.navParams.get('date'))
     console.log('ionViewDidLoad ReportdayPage');
 
 
-
-
-
-alert(this.navParams.get('date'))
+//alert(this.navParams.get('date'))
 
 this.refresh();
 
@@ -60,12 +60,29 @@ this.refresh();
 
 refresh(){
 
-
+/*
 this.date1 = new Date();
 var month = this.date1.getUTCMonth() + 1;
 var day = this.date1.getUTCDate();
 var year = this.date1.getUTCFullYear();
-this.createdate=month+ "/" + day + "/" + year;
+this.createdate=month+ "/" + day + "/" + year; 
+
+*/
+
+
+
+
+this.try=moment().format();  
+
+console.log(this.try);
+this.res = this.try.slice(0, 10);
+console.log(this.res);
+
+
+
+
+
+
 
 
 this.db=new Pouchdb('solditem')
@@ -91,7 +108,7 @@ for (var i=0 ; i<rows.length ; i++) {
 
 this.solddate=rows[i].doc.date;
 
-if(this.solddate==this.createdate){
+if(this.solddate==this.res){
 
 
 

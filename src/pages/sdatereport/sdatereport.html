@@ -6,13 +6,60 @@
 -->
 <ion-header>
 
+
   <ion-navbar>
-    <ion-title>sdatereport</ion-title>
+
+
+<ion-buttons left>
+        <button  ion-button menuToggle left>
+        <ion-icon name="menu"> </ion-icon>
+     </button> 
+    </ion-buttons>
+
+    <ion-title>specific date report</ion-title>
+  
+
   </ion-navbar>
 
 </ion-header>
 
 
+
+
 <ion-content padding>
+
+<ion-item   *ngFor="let item  of items"    padding>
+
+
+<p>
+
+	Product Name :{{  item.name}}
+
+
+</p>
+
+<p>
+
+  Product Date :{{  item.date}}
+
+
+</p>
+
+<p>
+
+  Product Quantity  Sold:{{  item.soldq}}
+</p>
+
+<p>
+
+  Current quantity left:{{item.quantity}}
+</p>
+
+
+
+	</ion-item>
+
+
+
 
 </ion-content>
