@@ -1,6 +1,6 @@
 {
   "name": "wonka_app",
-  "app_id": "99daa51a",
+  "app_id": "ed181d20",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

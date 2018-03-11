@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Tab1Page } from '../tab1/tab1';
 import Pouchdb from 'pouchdb';
 import { AlertController } from 'ionic-angular';
+//import { Printer, PrintOptions } from '@ionic-native/printer';
+
 //import * as Pouchdb from 'pouchdb';
 /**
  * Generated class for the ApPage page.
@@ -24,7 +26,10 @@ private db;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController, public printer: Printer) {
+
+
+
   }
 
 
@@ -194,6 +199,11 @@ this.navCtrl.push('Tab1Page', {item_id:item._id})
 
 
 
+
+
 }
+
+
+
 
 

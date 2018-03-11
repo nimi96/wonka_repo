@@ -19,7 +19,7 @@ export class SdatereportPage {
 public db:any;
 public items:any;
 public solddate:any;
-
+public sdate:any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -81,6 +81,8 @@ if(!err){
 
 for (var i=0 ; i<rows.length ; i++) {
 	
+
+this.sdate=this.navParams.get('date');
 
 this.solddate=rows[i].doc.date;
 

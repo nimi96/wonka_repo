@@ -85,6 +85,7 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <plugin name="cordova-plugin-printer" spec="git+https://github.com/katzer/cordova-plugin-printer.git" />
     <engine name="android" spec="^7.0.0" />
     <engine name="ios" spec="~4.5.4" />
 </widget>

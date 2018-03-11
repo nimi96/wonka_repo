@@ -34,7 +34,7 @@ public to:any;
 
 
 today(){
-/*
+
 
 var date1 = new Date();
 var month = date1.getUTCMonth() + 1;
@@ -42,7 +42,7 @@ var day = date1.getUTCDate();
 var year = date1.getUTCFullYear();
 var newdate=month+ "/" + day + "/" + year;
 
-
+/*
 	alert("this is today" + newdate);
 */
 
@@ -73,6 +73,10 @@ this.navCtrl.push('SdatereportPage',{date:this.myDate} );
 SM(){
 
 alert("this is from"+this.from+"this is to "+this.to);
+
+this.navCtrl.push('SprepoPage',{date:this.from ,date2:this.to});
+
+
 
 
 }
