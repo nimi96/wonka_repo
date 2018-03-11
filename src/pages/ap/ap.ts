@@ -26,7 +26,7 @@ private db;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController, public printer: Printer) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController) {
 
 
 
