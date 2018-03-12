@@ -28,7 +28,7 @@ public sdate:any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad SdatereportPage');
  
-alert(this.navParams.get('date'))
+//alert(this.navParams.get('date'))
 
 
 this.refresh();

@@ -59,7 +59,7 @@ this.navCtrl.push('ReportdayPage',{date:newdate} );
 SD(){
 
 
-	alert(this.myDate);
+	//alert(this.myDate);
 
 this.navCtrl.push('SdatereportPage',{date:this.myDate} );
 
