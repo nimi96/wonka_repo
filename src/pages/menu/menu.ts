@@ -37,6 +37,7 @@ export class MenuPage {
      {title:'product updation', pagename:'PdPage',icon:'alert'},
      {title:'report', pagename:'RepoPage',icon:'stats'},
      {title:'All products', pagename:'ApPage',icon:'ios-archive'},
+     {title:'print', pagename:'PrintPage',icon:'print'}
    
      
     

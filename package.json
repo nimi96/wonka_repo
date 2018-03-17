@@ -38,7 +38,6 @@
     "cordova-plugin-printer": "git+https://github.com/katzer/cordova-plugin-printer.git",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "^1.3.3",
-    "de.appplant.cordova.plugin.printer": "^0.7.3",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "moment": "^2.21.0",

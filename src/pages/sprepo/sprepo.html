@@ -13,6 +13,41 @@
 </ion-header>
 
 
+
 <ion-content padding>
+
+<ion-item   *ngFor="let item  of items"    padding>
+
+
+<p>
+
+	Product Name :{{  item.name}}
+
+
+</p>
+
+<p>
+
+  Product Date :{{  item.date}}
+
+
+</p>
+
+<p>
+
+  Product Quantity  Sold:{{  item.soldq}}
+</p>
+
+<p>
+
+  Current quantity left:{{item.quantity}}
+</p>
+
+
+
+	</ion-item>
+
+
+
 
 </ion-content>
