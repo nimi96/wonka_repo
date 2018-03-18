@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+//import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as PouchDB from 'pouchdb';
 
 
@@ -40,7 +40,7 @@ public title="item reg";
 
 public datee:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,/*private camera: Camera */) {}
 
 
  string = new Date().toISOString();
@@ -264,7 +264,7 @@ this.navCtrl.push('ApPage');
 
 
 
-
+/*
 
 
 
@@ -290,6 +290,6 @@ this.camera.getPicture(options).then((imageData) => {
 
 }
 
-
+*/
 
 }
