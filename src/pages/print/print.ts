@@ -78,12 +78,44 @@ let options: PrintOptions = {
 
   this.printer.isAvailable().then(function(){
             this.printer.print("https://www.techiediaries.com").then(function(){
-            alert("printing done successfully !");
+            let alert = this.alertCtrl.create({
+        title: 'Error',
+        message: 'succesful',
+        buttons: ['Ok']
+        });
+
+      alert.present()
+
             },function(){
-            alert("Error while printing !");
+            
+
+
+            let alert = this.alertCtrl.create({
+        title: 'Error',
+        message: 'Error : printing is unavailable on your device',
+        buttons: ['Ok']
+        });
+
+      alert.present()
+
+            
+
+
             });
         }, function(){
-        alert('Error : printing is unavailable on your device ');
+        
+let alert = this.alertCtrl.create({
+        title: 'Error',
+        message: 'Error : printing is unavailable on your device',
+        buttons: ['Ok']
+        });
+
+      alert.present()
+
+
+
+        
+
         });
 
 }
