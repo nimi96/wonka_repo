@@ -46,7 +46,9 @@ this.printer.check(
 
 
 hello(){
- this.printer.isAvailable().then(value => {
+ 
+
+ /*this.printer.isAvailable().then(value => {
       
       console.log("isAvailable", value);
 
@@ -70,7 +72,21 @@ let options: PrintOptions = {
 
    this.printer.print("content", options).then();
 
+*/
 
+
+
+  this.printer.isAvailable().then(function(){
+            this.printer.print("https://www.techiediaries.com").then(function(){
+            alert("printing done successfully !");
+            },function(){
+            alert("Error while printing !");
+            });
+        }, function(){
+        alert('Error : printing is unavailable on your device ');
+        });
 
 }
+
+
 }
