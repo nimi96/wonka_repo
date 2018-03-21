@@ -48,16 +48,47 @@ public datee:any;
 
 
 
+  ionViewDidLoad() {
+
+   this.setupdb();
+    
+
+   if(this.navParams.get('item_id')!=null){
+       
+       this.title="item update"
+
+    	this.db.get(this.navParams.get('item_id'),(err, result)=>{
+
+    		if(!err){
+
+    		        	this.item=result;
+                 this.name=result.name;
+                 this.desc=result.desc;
+                 this.price=result.price;
+                 this.quan=result.quan;
+                 this.id=result._id;
+            
+    		}
+
+
+    	})
+    }
+
+    }
+
+
+
+
 
 setupdb(){
 
 
 
-this.db = new PouchDB('mytestdb');
+//this.db = new PouchDB('mytestdb');
     
     this.username = ' 0688ea10-ac0f-4885-a25e-aab174554829-bluemix';
     this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
-    this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/item/';
+    this.remoteDB = '0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/item/';
 
 this.db=new PouchDB('items');
 
@@ -103,7 +134,6 @@ this.db.sync(this.remoteDB, {
 
 
 
- 
 
 
 
@@ -111,37 +141,6 @@ this.db.sync(this.remoteDB, {
 
 
 
-  ionViewDidLoad() {
-
-
-
-
-
- this.setupdb();
-    
-
-   if(this.navParams.get('item_id')!=null){
-       
-       this.title="item update"
-
-    	this.db.get(this.navParams.get('item_id'),(err, result)=>{
-
-    		if(!err){
-
-    		        	this.item=result;
-                 this.name=result.name;
-                 this.desc=result.desc;
-                 this.price=result.price;
-                 this.quan=result.quan;
-                 this.id=result._id;
-            
-    		}
-
-
-    	})
-    }
-
-    }
 
 
 
