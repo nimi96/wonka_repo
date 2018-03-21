@@ -84,13 +84,14 @@ setupdb(){
 
 
 
-//this.db = new PouchDB('mytestdb');
+    this.db = new PouchDB('mytestdb');
     
-    this.username = ' 0688ea10-ac0f-4885-a25e-aab174554829-bluemix';
+    this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/item/';
+    this.username = '0688ea10-ac0f-4885-a25e-aab174554829-bluemix';
     this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
-    this.remoteDB = '0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/item/';
+    
 
-this.db=new PouchDB('items');
+    this.db=new PouchDB('items');
 
 
 
@@ -121,13 +122,22 @@ this.db.sync(this.remoteDB, {
       live: true,
       retry: true,
       continuous: true,
+      
       auth: {
+       
         username: this.username,
+       
         password: this.password
       }
     };
  
-    this.db.sync(this.remoteDB, options);
+    this.db.sync(this.remoteDB,{
+  live: true,
+    username: this.username,
+       
+        password: this.password,
+  retry: true
+}        );
      }
 
 
