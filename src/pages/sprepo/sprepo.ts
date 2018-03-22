@@ -21,6 +21,9 @@ public db:any;
 public items:any;
 public solddate:any;
 public period=[];
+public username;
+public password;
+public remoteDB:any;
 
 
 
@@ -44,9 +47,71 @@ refresh(){
 
 
 
+
+
+  this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/solditem/';
+    this.username = '0688ea10-ac0f-4885-a25e-aab174554829-bluemix';
+    this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
+
+
+
+
+
 this.db=new Pouchdb('solditem')
 
 this.items=[];
+
+
+
+
+
+this.db=new Pouchdb('solditem')
+
+this.items=[];
+
+
+this.db.sync(this.remoteDB, {
+  live: true,
+  retry: true,
+  username: this.username,
+  password: this.password,
+}).on('change', function (change) {
+  
+  console.log ("yo, something changed!");
+
+}).on('paused', function (info) {
+  
+  console.log("replication was paused, usually because of a lost connection");
+}).on('active', function (info) {
+  console.log(" replication was resumed");
+
+}).on('error', function (err) {
+  console.log(" totally unhandled error (shouldn't happen");
+});
+
+
+
+
+
+this.db.sync(this.remoteDB,{
+  live: true,
+  username: this.username,
+  password: this.password,
+  retry: true
+             });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 this.db.allDocs({include_docs:true},(err,result)=>{
 

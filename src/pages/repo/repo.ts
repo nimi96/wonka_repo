@@ -72,7 +72,7 @@ this.navCtrl.push('SdatereportPage',{date:this.myDate} );
 
 SM(){
 
-alert("this is from"+this.from+"this is to "+this.to);
+//alert("this is from"+this.from+"this is to "+this.to);
 
 this.navCtrl.push('SprepoPage',{date:this.from ,date2:this.to});
 

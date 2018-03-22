@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as PouchDB from 'pouchdb';
-
+import { ApPage } from '../ap/ap';
 
 @IonicPage()
 @Component({
@@ -34,10 +34,8 @@ public pp;
 public x;
 public element;
 public date1;
-
 public now;
 public title="item reg";
-
 public datee:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController ,private camera: Camera ) {}
@@ -110,10 +108,15 @@ this.db.sync(this.remoteDB, {
   retry: true
 }).on('change', function (change) {
   console.log ("yo, something changed!");
+
+
+
+
 }).on('paused', function (info) {
   console.log("replication was paused, usually because of a lost connection");
 }).on('active', function (info) {
   console.log(" replication was resumed");
+
 }).on('error', function (err) {
   console.log(" totally unhandled error (shouldn't happen");
 });
@@ -133,11 +136,14 @@ this.db.sync(this.remoteDB, {
  
     this.db.sync(this.remoteDB,{
   live: true,
-    username: this.username,
-       
-        password: this.password,
+  username: this.username,
+  password: this.password,
   retry: true
-}        );
+             });
+     
+
+     
+
      }
 
 

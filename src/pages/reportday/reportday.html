@@ -19,6 +19,22 @@
     <ion-title>Today's report  </ion-title>
   
 
+<ion-buttons end>
+
+<button  (click)="refresh()"  >
+
+<ion-icon name="ios-repeat" color="secondary" >
+
+</ion-icon>
+
+</button>
+
+</ion-buttons>
+
+
+
+
+
   </ion-navbar>
 
 </ion-header>
@@ -53,6 +69,16 @@
   Current quantity left:{{item.quantity}}
 </p>
 
+
+<p>
+
+  product price:{{item.price}}
+</p>
+
+<p>
+
+total deal:{{item.deal}}
+</p>
 
 
 	</ion-item>

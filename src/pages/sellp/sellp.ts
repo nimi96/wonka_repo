@@ -30,17 +30,24 @@ private price;
 private image;
 private solditems;
 private code;
-
 private try;
 private res;
+public username;
+public password;
+public remoteDB:any;
+public deal;
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController) {
+ 
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SellpPage');
  
-this.refresh();
+  this.refresh();
   this.getcdata();
 
 
@@ -120,8 +127,8 @@ this.name=result.name;
 this.desc=result.desc;
 this.price=result.price;
 this.image=result.img;
- 
- this.code=result.code;
+this.code=result.code;
+
 } 
 }
 
@@ -160,12 +167,13 @@ if (this.item){
 
 this.currentquan=this.quan-this.quan1;
 
+this.deal=this.quan1*this.price;
 
 console.log("sqanitity"+this.quan1);
 console.log("this is current quantity"+this.currentquan);
 
 
-if (this.currentquan<0) {
+if (this.currentquan<=0) {
 
 
         let alert = this.alertCtrl.create({
@@ -216,7 +224,46 @@ if(!err){
 
 
 this.db2=new Pouchdb('solditem')
+
 this.solditems=[];
+
+    this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/solditem/';
+    this.username = '0688ea10-ac0f-4885-a25e-aab174554829-bluemix';
+    this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
+
+
+this.db2.sync(this.remoteDB, {
+  live: true,
+  retry: true
+}).on('change', function (change) {
+  
+  console.log ("yo, something changed!");
+
+}).on('paused', function (info) {
+  
+  console.log("replication was paused, usually because of a lost connection");
+}).on('active', function (info) {
+  console.log(" replication was resumed");
+
+}).on('error', function (err) {
+  console.log(" totally unhandled error (shouldn't happen");
+});
+
+
+ 
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -229,7 +276,7 @@ image:this.item.image,
 code:this.item.code,
 soldq:this.quan1,
 date:this.res,
-
+deal:this.deal,
 
  }, (err,result)=>{
 
@@ -241,6 +288,11 @@ console.log(this.db2.result);
 
 
 }
+
+
+
+
+
 
 
 
@@ -278,7 +330,12 @@ console.log(this.item.desc);
 
 
 
-
+this.db2.sync(this.remoteDB,{
+  live: true,
+  username: this.username,
+  password: this.password,
+  retry: true
+             });
 
 
 

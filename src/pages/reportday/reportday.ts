@@ -16,23 +16,16 @@ import * as moment from 'moment';
   templateUrl: 'reportday.html',
 })
 export class ReportdayPage {
-
-
-
-
-
-
-
-
-
 public db:any;
 public items:any;
 public solddate:any;
 public date1:any;
 public createdate:any;
-
 public try;
 public res;
+public username;
+public password;
+public remoteDB:any;
 
 
 
@@ -57,37 +50,69 @@ this.refresh();
   }
 
 
+ionViewDidEnter(){
+  this.refresh();
+
+}
+
+
+
+
+
 
 refresh(){
 
-/*
-this.date1 = new Date();
-var month = this.date1.getUTCMonth() + 1;
-var day = this.date1.getUTCDate();
-var year = this.date1.getUTCFullYear();
-this.createdate=month+ "/" + day + "/" + year; 
-
-*/
-
-
-
 
 this.try=moment().format();  
-
 console.log(this.try);
 this.res = this.try.slice(0, 10);
 console.log(this.res);
 
 
-
-
-
-
+    this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/solditem/';
+    this.username = '0688ea10-ac0f-4885-a25e-aab174554829-bluemix';
+    this.password = '29d8c35d93e1a74de48cb1f229ae55970cf48bdf';
 
 
 this.db=new Pouchdb('solditem')
 
 this.items=[];
+
+
+this.db.sync(this.remoteDB, {
+  live: true,
+  retry: true,
+  username: this.username,
+  password: this.password,
+}).on('change', function (change) {
+  
+  console.log ("yo, something changed!");
+
+}).on('paused', function (info) {
+  
+  console.log("replication was paused, usually because of a lost connection");
+}).on('active', function (info) {
+  console.log(" replication was resumed");
+
+}).on('error', function (err) {
+  console.log(" totally unhandled error (shouldn't happen");
+});
+
+
+
+
+
+this.db.sync(this.remoteDB,{
+  live: true,
+  username: this.username,
+  password: this.password,
+  retry: true
+             });
+
+this.db=new Pouchdb('solditem')
+
+
+
 
 this.db.allDocs({include_docs:true},(err,result)=>{
 
@@ -121,6 +146,22 @@ this.items.push(rows[i].doc);
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
