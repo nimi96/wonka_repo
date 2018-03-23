@@ -56,9 +56,6 @@ this.db.sync(this.remoteDB, {
 }).on('change', function (change) {
   console.log ("yo, something changed!");
 
-
-
-
 }).on('paused', function (info) {
   console.log("replication was paused, usually because of a lost connection");
 }).on('active', function (info) {
@@ -81,6 +78,7 @@ this.db.sync(this.remoteDB, {
       }
     };
  
+ /*
     this.db.sync(this.remoteDB,{
   live: true,
   username: this.username,
@@ -89,7 +87,7 @@ this.db.sync(this.remoteDB, {
              });
 
 
-
+*/
 
 
 this.db.allDocs({include_docs:true},(err,result)=>{
@@ -154,7 +152,6 @@ this.items.push(rows[i].doc);
   ionViewDidLoad() {
     console.log('ionViewDidLoad ApPage');
   
-this.refresh();
 
   }
 

@@ -26,18 +26,14 @@ public res;
 public username;
 public password;
 public remoteDB:any;
-
-
-
-
-
+public tsale:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
 //alert(this.navParams.get('date'))
 
 
-  }
+     }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReportdayPage');
@@ -138,6 +134,25 @@ if(this.solddate==this.res){
 
 
 this.items.push(rows[i].doc);
+
+
+//console.log(rows[i].doc.deal);
+
+
+for (var j=0;  j>=rows.length; j++) {
+
+var total=total*rows[j].doc.deal;
+
+
+console.log("total sale="+total);
+
+
+}
+
+
+
+
+
 
 }
 }
