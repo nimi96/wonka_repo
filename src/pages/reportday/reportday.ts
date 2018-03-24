@@ -27,6 +27,8 @@ public username;
 public password;
 public remoteDB:any;
 public tsale:any;
+public total:any;
+public deal:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -46,10 +48,6 @@ this.refresh();
   }
 
 
-ionViewDidEnter(){
-  this.refresh();
-
-}
 
 
 
@@ -60,9 +58,9 @@ refresh(){
 
 
 this.try=moment().format();  
-console.log(this.try);
+//console.log(this.try);
 this.res = this.try.slice(0, 10);
-console.log(this.res);
+//console.log(this.res);
 
 
     this.remoteDB = 'https://0688ea10-ac0f-4885-a25e-aab174554829-bluemix.cloudant.com/solditem/';
@@ -132,30 +130,33 @@ this.solddate=rows[i].doc.date;
 if(this.solddate==this.res){
 
 
-
 this.items.push(rows[i].doc);
 
 
-//console.log(rows[i].doc.deal);
 
 
-for (var j=0;  j>=rows.length; j++) {
-
-var total=total*rows[j].doc.deal;
 
 
-console.log("total sale="+total);
+//console.log("total deals is="+rows[i].doc.deal)
 
+
+
+
+
+
+
+}};
+
+
+
+this.total=0;
+for (i=0;i<this.items.length;i++){
+this.total=this.items[i].deal+this.total;
 
 }
 
+console.log(this.total);
 
-
-
-
-
-}
-}
 
 }
 

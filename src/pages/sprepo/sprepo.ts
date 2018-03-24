@@ -24,6 +24,7 @@ public period=[];
 public username;
 public password;
 public remoteDB:any;
+public total:any;
 
 
 
@@ -104,15 +105,6 @@ this.db.sync(this.remoteDB,{
 
 
 
-
-
-
-
-
-
-
-
-
 this.db.allDocs({include_docs:true},(err,result)=>{
 
 if(!err){
@@ -175,7 +167,19 @@ if (bc !== -1) {
 
 
 
+
+
+
 }
+
+this.total=0;
+for (i=0;i<this.items.length;i++){
+this.total=this.items[i].deal+this.total;
+
+}
+
+console.log(this.total);
+
 
 }
 
@@ -185,6 +189,10 @@ if (bc !== -1) {
 
 //this.navParams.get('date')
 //this.navParams.get('date2')
+
+
+
+
 
 
 

@@ -86,6 +86,8 @@ let options: PrintOptions = {
 
       alert.present()
 
+
+
             },function(){
             
 

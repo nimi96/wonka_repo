@@ -23,7 +23,7 @@ public sdate:any;
 public username;
 public password;
 public remoteDB:any;
-
+public total:any;
 
 
 
@@ -163,7 +163,20 @@ this.items.push(rows[i].doc);
 
 }
 
+
+
+
+
 }
+
+this.total=0;
+for (i=0;i<this.items.length;i++){
+this.total=this.items[i].deal+this.total;
+
+}
+
+console.log(this.total);
+
 
 
 })
