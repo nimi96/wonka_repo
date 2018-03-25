@@ -32,20 +32,31 @@
 
 
 
-<ion-card>
+
+<p>
+
+Name:{{name}}
+</p>
+<p>
+Desc:{{desc}}
+</p>
+<p>
+Current quntity: {{quan}}
+</p>
+<p>
+price :{{price}}
+</p>    
+
+   
 
 
+<ion-card padding>
+
+
+ <img [src]=img *ngIf="img" >
 
 </ion-card>
 
-
-name:{{name}}
-desc:{{desc}}
-current quntity: {{quan}}
-price :{{price}}
-    
-
-    <img [src]=img *ngIf="img" >
 
 
 </ion-content>

@@ -69,7 +69,7 @@
 
  
 
- <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="myDate">  </ion-datetime>
+ <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="myDate"    min="2016"  max="2020-10-31"  >  </ion-datetime>
 <br>
   
   <ion-label color="primary"   text-center   >  Date </ion-label>
@@ -84,7 +84,7 @@
 
 <div text-center align-items-center>
 
-<button    (click)="SD()"   *ngIf="myDate"   ion-button >  Get</button>
+<button    (click)="SD()"   *ngIf="myDate"      ion-button >  Get</button>
 
 </div>
 
@@ -98,7 +98,7 @@
 <ion-item>
 
 
-  <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="from">  </ion-datetime>
+  <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="from"     min="2018"  max="2020-10-31"  >   </ion-datetime>
 <br>
   
   <ion-label color="primary"   text-center   >  from  </ion-label>
@@ -110,7 +110,7 @@
 <ion-item>
 
 
-  <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="to">  </ion-datetime>
+  <ion-datetime displayFormat="M/D/YYYY" [(ngModel)]="to"  min="2016"  max="2020-10-31">  </ion-datetime>
 <br>
   
   <ion-label color="primary"   text-center   >  TO  </ion-label>
@@ -120,7 +120,7 @@
 
 <div text-center align-items-center>
 
-<button   ion-button   (click)="SM()"   *ngIf="to && from"   >  Get</button>
+<button   ion-button   (click)="SM()"   *ngIf="to && from"    >  Get</button>
 
 </div>
 

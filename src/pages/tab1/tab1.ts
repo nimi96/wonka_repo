@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as PouchDB from 'pouchdb';
-import { ApPage } from '../ap/ap';
 
 @IonicPage()
 @Component({
@@ -121,6 +120,8 @@ this.db.sync(this.remoteDB, {
   console.log(" totally unhandled error (shouldn't happen");
 });
 
+/*
+
   let options = {
       live: true,
       retry: true,
@@ -134,6 +135,7 @@ this.db.sync(this.remoteDB, {
       }
     };
  
+ */
     this.db.sync(this.remoteDB,{
   live: true,
   username: this.username,

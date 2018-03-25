@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController  } from 'ionic-angular';
-import { Printer, PrintOptions } from '@ionic-native/printer';
+import { Printer  /* , PrintOptions  */ } from '@ionic-native/printer';
 
 /**
  * Generated class for the PrintPage page.

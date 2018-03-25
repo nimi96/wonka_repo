@@ -22,7 +22,7 @@
 
 <ion-buttons end>
 
-<button  (click)="refresh()"  >
+<button  (click)="syc()"  >
 
 <ion-icon name="ios-repeat" color="secondary" >
 
@@ -60,31 +60,7 @@
 
 <ion-list>
 
-<!--
-	<ion-item>
 
-<p>
-
-name:pen 
-</p>
-<p>
-
-desc:tri-max pen
-</p>
-<p>
-	desc :50
-</p>
-<p>
-	price:55
-</p>
-
-	</ion-item>
-
-
-
-
-
--->
 
 
 
@@ -130,17 +106,18 @@ item  	{{ item.desc}}
 
 </p>
 
+<!--
 
 <p>
 image:{{item.img}}
 
 </p>
-
+-->
 
 
 <p>
 
-this is date:{{item.date}}
+Added on :{{item.date}}
 
 </p>
 
@@ -151,7 +128,7 @@ this is date:{{item.date}}
 
 
 
-code: 
+Qrcode: 
 
 <br>
 

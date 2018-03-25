@@ -9,7 +9,7 @@ import { Camera } from '@ionic-native/camera';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 //import { QRCodeModule } from 'angular2-qrcode';
-import { Printer, PrintOptions } from '@ionic-native/printer';
+import { Printer  /* , PrintOptions */} from '@ionic-native/printer';
 
 @NgModule({
   declarations: [
