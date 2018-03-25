@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController  } from 'ionic-angular';
-import { Printer  /* , PrintOptions  */ } from '@ionic-native/printer';
+import { Printer   , PrintOptions } from '@ionic-native/printer';
 
 /**
  * Generated class for the PrintPage page.
@@ -45,18 +45,29 @@ this.printer.check(
 
 
 
+
+
+
 hello(){
  
 
- /*this.printer.isAvailable().then(value => {
+
+
+
+ this.printer.isAvailable().then(value => {
       
       console.log("isAvailable", value);
 
+   this.printer.print("content").then();
+
     }).catch(error => {
+
+
       
       console.log("ERROR",error);
   
     });
+
 
 
 
@@ -68,13 +79,15 @@ let options: PrintOptions = {
      grayscale: true
    };
 
+   
 
 
-   this.printer.print("content", options).then();
-
-*/
 
 
+
+
+
+/*
 
   this.printer.isAvailable().then(function(){
             this.printer.print("https://www.techiediaries.com").then(function(){
@@ -119,6 +132,8 @@ let alert = this.alertCtrl.create({
         
 
         });
+
+*/
 
 }
 
