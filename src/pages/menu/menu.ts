@@ -37,8 +37,7 @@ export class MenuPage {
      {title:'product updation', pagename:'PdPage',icon:'alert'},
      {title:'report', pagename:'RepoPage',icon:'stats'},
      {title:'All products', pagename:'ApPage',icon:'ios-archive'},
-     {title:'print', pagename:'PrintPage',icon:'print'},
-     {title:'home', pagename:'HomePage',icon:'print'},
+    
    
      
     
@@ -115,3 +114,10 @@ if(this.nav.getActive()&& this.nav.getActive().name === page.pagename )
 
 
 }
+
+
+/*
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks   C:\wonka_app\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk my-alias
+C:\Users\nimit\AppData\Local\Android\sdk1\build-tools\25.0.3\zipalign.exe -v 4 C:\wonka_app\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk C:\Users\nimit\Desktop\try2.apk
+C:\Users\nimit\AppData\Local\Android\sdk1\build-tools\25.0.3\apksigner.bat verify C:\Users\nimit\Desktop\try2.apk
+*/

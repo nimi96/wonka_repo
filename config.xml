@@ -92,7 +92,7 @@
         <variable name="ANDROID_SUPPORT_VERSION" value="26.+" />
     </plugin>
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <plugin name="cordova-plugin-file-opener2" spec="^2.0.19" />
     <engine name="ios" spec="~4.5.4" />
     <engine name="android" spec="~7.0.0" />
-    <plugin name="cordova-plugin-file-opener2" spec="^2.0.19" />
 </widget>

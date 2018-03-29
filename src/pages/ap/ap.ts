@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Tab1Page } from '../tab1/tab1';
 import Pouchdb from 'pouchdb';
 import { AlertController } from 'ionic-angular';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
 //import { Printer, PrintOptions } from '@ionic-native/printer';
 
 //import * as Pouchdb from 'pouchdb';
@@ -24,9 +29,13 @@ private db;
 public remoteDB:any;
 public username;
 public password;
+pdfObj = null;
 
+public cdata:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController) {
+public cstock;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController,private plt: Platform, private file: File, private fileOpener: FileOpener) {
 
   }
 
@@ -36,12 +45,6 @@ ionViewDidEnter(){
 	this.refresh();
 
 }
-
-
-
-
-
-
 
 
 syc(){
@@ -134,31 +137,7 @@ this.items.push(rows[i].doc);
 
 
 
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -315,10 +294,6 @@ let confirm = this.alertCtrl.create({
           
 
 
-
-
-
-
 this.db.remove(item,(err,result)=>{
 
 if(!err){
@@ -356,10 +331,85 @@ if(!err){
 
 
 
-
 updateitem(item){
 this.navCtrl.push('Tab1Page', {item_id:item._id})
 }
+
+
+
+
+
+
+print(idx,item){
+
+
+
+console.log(item.name)
+console.log(idx);
+
+
+var x=document.getElementsByClassName("qrcode");
+
+console.log(x[idx]);
+
+
+var data=x[idx];
+var b=data.getElementsByTagName("img")
+
+
+
+
+console.log(b[0].src);
+
+this.cdata=b[0].src
+
+var docDefinition = { content:[ {
+      // you'll most often use dataURI images on the browser side
+      // if no width/height/fit is provided, the original size will be used
+      image: this.cdata,
+    },
+
+    { text: item.name, style: 'story', margin: [20, 20, 0, 20] },
+    
+    ]  
+
+  };
+
+
+this.pdfObj = pdfMake.createPdf(docDefinition);
+
+
+
+
+this.downloadPdf();
+
+
+
+}
+
+
+
+
+
+ downloadPdf() {
+    if (this.plt.is('cordova')) {
+      this.pdfObj.getBuffer((buffer) => {
+        var blob = new Blob([buffer], { type: 'application/pdf' });
+ 
+        // Save the PDF to the data Directory of our App
+        this.file.writeFile(this.file.dataDirectory, 'Mycode.pdf', blob, { replace: true }).then(fileEntry => {
+          // Open the PDf with the correct OS tools
+          this.fileOpener.open(this.file.dataDirectory + 'Mycode.pdf', 'application/pdf');
+        })
+      });
+    } else {
+      // On a browser simply use download!
+      this.pdfObj.download();
+    }
+  }
+
+
+
 
 
 
