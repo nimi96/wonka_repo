@@ -23,6 +23,8 @@
     "@ionic-native/barcode-scanner": "^4.5.3",
     "@ionic-native/camera": "^4.5.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/file": "^4.6.0",
+    "@ionic-native/file-opener": "^4.6.0",
     "@ionic-native/printer": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
@@ -34,6 +36,8 @@
     "cordova-ios": "~4.5.4",
     "cordova-plugin-camera": "^4.0.2",
     "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-file": "^6.0.1",
+    "cordova-plugin-file-opener2": "^2.0.19",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-printer": "git+https://github.com/katzer/cordova-plugin-printer.git",
@@ -45,6 +49,7 @@
     "moment": "^2.21.0",
     "ngx-qrcode2": "0.0.5",
     "ngx-qrcode3": "^0.3.0",
+    "pdfmake": "^0.1.36",
     "phonegap-plugin-barcodescanner": "^7.0.2",
     "pouchdb": "6.2.0",
     "pouchdb-adapter-cordova-sqlite": "2.0.2",
@@ -76,7 +81,9 @@
       "cordova.plugins.diagnostic": {},
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "26.+"
-      }
+      },
+      "cordova-plugin-file": {},
+      "cordova-plugin-file-opener2": {}
     },
     "platforms": [
       "ios",

@@ -10,7 +10,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 //import { QRCodeModule } from 'angular2-qrcode';
 import { Printer  /* , PrintOptions */} from '@ionic-native/printer';
-
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
 @NgModule({
   declarations: [
 
@@ -41,7 +42,9 @@ import { Printer  /* , PrintOptions */} from '@ionic-native/printer';
     Printer,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BarcodeScanner
+    BarcodeScanner,
+    File,
+    FileOpener,
   ]
 })
 export class AppModule {}
